@@ -1,23 +1,42 @@
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap');
+
 body {
-    background-color: beige;
+    background-color: rgba(62, 143, 168, 0.493);
 }
-
-#whiteboard {
-    width: 500px;
-    height: 500px;
-    background-color: white;
-    margin: auto;
+h1 {
+    font-size: 3.6em;
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;;
 }
-
-#colorPicks {
+#container {
     display: flex;
-    margin-top: 10px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-
-.colorPick {
-    width: 25px;
-    height: 25px;
+canvas {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+#control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+#colorPick {
+    display: flex;
+    margin-top: 20px;
+}
+#colorPick > * {
+    background-color: white;
+    width: 50px;
+    height: 50px;
     margin: 5px;
     border-radius: 50%;
+}
+button {
+    font-size: 15px;
+    font-family: 'Indie Flower', cursive;
 }
