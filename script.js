@@ -16,24 +16,23 @@ if (canvas.getContext) {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = 'black';
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = 7.5;
 
-    function onMouseDown(e) {
+    function onMouseDown() {
         isDrawingBegin = true;
-        isDrawingEnd = false;
-        ctx.beginPath()
-        ctx.moveTo(e.offsetX, e.offsetY)
     }
 
-    function onMouseUp(e) {
+    function onMouseUp() {
         isDrawingBegin = false;
-        isDrawingEnd = true;
-        ctx.stroke()
     }
 
     function mouseDrag(e) {
-        if (isDrawingBegin) {
+        if (!isDrawingBegin) {
+            ctx.beginPath()
+            ctx.moveTo(e.offsetX, e.offsetY)
+        } else {
             ctx.lineTo(e.offsetX, e.offsetY)
+            ctx.stroke()
         }
     }
 
@@ -45,7 +44,8 @@ if (canvas.getContext) {
     canvas.addEventListener('mouseup', onMouseUp)
     canvas.addEventListener('mousemove', mouseDrag)
     range.addEventListener('mouseup', chagneRangeValue)
-    
+    canvas.addEventListener('mouseleave', onMouseUp)
+
     function colorChange(e) {
         ctx.strokeStyle = e.target.style.backgroundColor
     }
@@ -54,23 +54,29 @@ if (canvas.getContext) {
         colors[i].addEventListener('click', colorChange)
     }
 
-    function clickFillButton(e) {
-        
+    function clickFillButton() {
+        ctx.rect(0, 0, canvas.width, canvas.height)
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill()
     }
 
-    function clickSaveButton(e) {
-
+    function clickSaveButton() {
+        const imageFile = canvas.toDataURL();
+        let link = document.createElement('a')
+        link.download = 'Untitle.jpeg';
+        link.href = imageFile;
+        link.click();
     }
 
-    function clickEraseButton(e) {
-
+    function clickEraseButton() {
+        ctx.rect(0, 0, canvas.width, canvas.height)
+        ctx.fillStyle = 'white';
+        ctx.fill()
     }
 
     fill_button.addEventListener('click', clickFillButton)
     save_button.addEventListener('click', clickSaveButton)
     erase_button.addEventListener('click', clickEraseButton)
-
-
 }
 
 
