@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap');
 
 body {
-    background-color: rgba(62, 143, 168, 0.493);
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg);
 }
 h1 {
     font-size: 3.6em;
     margin-top: 20px;
-    font-family: 'Dancing Script', cursive;;
+    font-family: 'Dancing Script', cursive;
+    color: rgb(103, 123, 238);
 }
 #container {
     display: flex;
@@ -34,6 +35,9 @@ canvas {
     height: 50px;
     margin: 1px;
     border-radius: 50%;
+}
+#range {
+    margin-bottom: 20px;
 }
 button {
     font-size: 15px;

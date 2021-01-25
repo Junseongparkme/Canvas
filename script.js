@@ -78,5 +78,3 @@ if (canvas.getContext) {
     save_button.addEventListener('click', clickSaveButton)
     erase_button.addEventListener('click', clickEraseButton)
 }
-
-

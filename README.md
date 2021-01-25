@@ -1,3 +1,4 @@
-# PaintJS_2021
+# ⚔ Canvas
 
-Use HTML, CSS, JS
+- [x] 기본적인 캔버스 완성
+- [ ] 문제를 제출하고 맞추는 기능 추가하기
